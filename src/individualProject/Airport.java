@@ -17,6 +17,7 @@ public class Airport {
     private String dataSource;
 
 
+
     public Airport(int airportID, String airportName, String cityName, String countryName, String IATACode,
                    String ICAOCode, float latitude, float longitude, float altitude, float timeZone,
                    char dayLightSaving, String tzDBTimeZone, String type, String dataSource) {
