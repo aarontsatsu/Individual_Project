@@ -49,7 +49,7 @@ public class Main {
         }
 
 
-        //pass source city as parameter into the graph search
+        //pass source city and destination city as parameters into the graph search
 
         //write results into new file.
     }
