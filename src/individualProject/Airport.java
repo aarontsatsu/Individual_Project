@@ -1,5 +1,12 @@
 package individualProject;
 
+import java.io.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+
+
 public class Airport {
     private int airportID;
     private String airportName;
@@ -15,8 +22,6 @@ public class Airport {
     private String tzDBTimeZone;
     private String type;
     private String dataSource;
-
-
 
     public Airport(int airportID, String airportName, String cityName, String countryName, String IATACode,
                    String ICAOCode, float latitude, float longitude, float altitude, float timeZone,
@@ -35,6 +40,28 @@ public class Airport {
         this.tzDBTimeZone = tzDBTimeZone;
         this.type = type;
         this.dataSource = dataSource;
+    }
+
+    public static List<String[]> readAirportData() throws IOException {
+        List<String[]> dataHolder = new LinkedList<String[]>();
+        BufferedReader readAirportFile = null;
+        String line = "";
+        String[] lineHolder;
+        try{
+            readAirportFile = new BufferedReader(new FileReader("airports.csv"));
+            while((line=readAirportFile.readLine())!= null){
+                lineHolder = line.split(",");
+                dataHolder.add(lineHolder);
+                }
+            }
+        catch(FileNotFoundException fnf){
+            System.out.println("File Not Find Exception thrown.");
+        }
+        catch(IOException io){
+            System.out.println("IOException thrown.");
+        }
+        readAirportFile.close();
+        return dataHolder;
     }
 
     public int getAirportID() {

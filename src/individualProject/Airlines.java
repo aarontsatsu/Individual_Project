@@ -1,5 +1,12 @@
 package individualProject;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Airlines {
     private int airlineID;
     private String airlineName;
@@ -19,6 +26,29 @@ public class Airlines {
         this.callSign = callSign;
         this.country = country;
         this.active = active;
+    }
+
+
+    public static List<String[]> readAirlineData() throws IOException {
+        List<String[]> dataHolder = new LinkedList<String[]>();
+        BufferedReader readAirlineFile = null;
+        String line = "";
+        String[] lineHolder;
+        try{
+            readAirlineFile = new BufferedReader(new FileReader("airlines.csv"));
+            while((line=readAirlineFile.readLine())!= null){
+                lineHolder = line.split(",");
+                dataHolder.add(lineHolder);
+            }
+        }
+        catch(FileNotFoundException fnf){
+            System.out.println("File Not Find Exception thrown.");
+        }
+        catch(IOException io){
+            System.out.println("IOException thrown.");
+        }
+        readAirlineFile.close();
+        return dataHolder;
     }
 
     public int getAirlineID() {

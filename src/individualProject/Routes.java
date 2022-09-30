@@ -1,5 +1,12 @@
 package individualProject;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Routes {
     private String airlineCode;
     private int airlineID;
@@ -22,6 +29,28 @@ public class Routes {
         this.codeShare = codeShare;
         this.stops = stops;
         this.equipment = equipment;
+    }
+
+    public static List<String[]> readRoutesData() throws IOException {
+        List<String[]> dataHolder = new LinkedList<String[]>();
+        BufferedReader readRoutesFile = null;
+        String line = "";
+        String[] lineHolder;
+        try{
+            readRoutesFile = new BufferedReader(new FileReader("routes.csv"));
+            while((line=readRoutesFile.readLine())!= null){
+                lineHolder = line.split(",");
+                dataHolder.add(lineHolder);
+            }
+        }
+        catch(FileNotFoundException fnf){
+            System.out.println("File Not Find Exception thrown.");
+        }
+        catch(IOException io){
+            System.out.println("IOException thrown.");
+        }
+        readRoutesFile.close();
+        return dataHolder;
     }
 
     public String getAirlineCode() {
