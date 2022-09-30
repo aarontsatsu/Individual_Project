@@ -15,9 +15,9 @@ public class Airlines {
     private String ICAOCode;
     private String callSign;
     private String country;
-    private char active;
+    private String active;
 
-    public Airlines(int airlineID, String airlineName, String airlineAlias, String IATACode, String ICAOCode, String callSign, String country, char active) {
+    public Airlines(int airlineID, String airlineName, String airlineAlias, String IATACode, String ICAOCode, String callSign, String country, String active) {
         this.airlineID = airlineID;
         this.airlineName = airlineName;
         this.airlineAlias = airlineAlias;
@@ -107,11 +107,11 @@ public class Airlines {
         this.country = country;
     }
 
-    public char getActive() {
+    public String getActive() {
         return active;
     }
 
-    public void setActive(char active) {
+    public void setActive(String active) {
         this.active = active;
     }
 

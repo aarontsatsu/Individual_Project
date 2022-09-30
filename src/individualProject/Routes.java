@@ -14,12 +14,12 @@ public class Routes {
     private int SRCairportID;
     private String DESairportCode;
     private int DESairportID;
-    private char codeShare;
+    private String codeShare;
     private int stops;
     private String equipment;
 
     public Routes(String airlineCode, int airlineID, String SRCairportCode, int SRCairportID,
-                  String DESairportCode, int DESairportID, char codeShare, int stops, String equipment) {
+                  String DESairportCode, int DESairportID, String codeShare, int stops, String equipment) {
         this.airlineCode = airlineCode;
         this.airlineID = airlineID;
         this.SRCairportCode = SRCairportCode;
@@ -101,11 +101,11 @@ public class Routes {
         this.DESairportID = DESairportID;
     }
 
-    public char getCodeShare() {
+    public String getCodeShare() {
         return codeShare;
     }
 
-    public void setCodeShare(char codeShare) {
+    public void setCodeShare(String codeShare) {
         this.codeShare = codeShare;
     }
 

@@ -1,8 +1,6 @@
 package individualProject;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,18 +12,18 @@ public class Airport {
     private String countryName;
     private String IATACode;
     private String ICAOCode;
-    private float latitude;
-    private float longitude;
-    private float altitude;
-    private float timeZone;
-    private char dayLightSaving;
+    private double latitude;
+    private double longitude;
+    private double altitude;
+    private double timeZone;
+    private String dayLightSaving;
     private String tzDBTimeZone;
     private String type;
     private String dataSource;
 
     public Airport(int airportID, String airportName, String cityName, String countryName, String IATACode,
-                   String ICAOCode, float latitude, float longitude, float altitude, float timeZone,
-                   char dayLightSaving, String tzDBTimeZone, String type, String dataSource) {
+                   String ICAOCode, double latitude, double longitude, double altitude, double timeZone,
+                   String dayLightSaving, String tzDBTimeZone, String type, String dataSource) {
         this.airportID = airportID;
         this.airportName = airportName;
         this.cityName = cityName;
@@ -112,7 +110,7 @@ public class Airport {
         this.ICAOCode = ICAOCode;
     }
 
-    public float getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
@@ -120,7 +118,7 @@ public class Airport {
         this.latitude = latitude;
     }
 
-    public float getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
@@ -128,7 +126,7 @@ public class Airport {
         this.longitude = longitude;
     }
 
-    public float getAltitude() {
+    public double getAltitude() {
         return altitude;
     }
 
@@ -136,7 +134,7 @@ public class Airport {
         this.altitude = altitude;
     }
 
-    public float getTimeZone() {
+    public double getTimeZone() {
         return timeZone;
     }
 
@@ -144,11 +142,11 @@ public class Airport {
         this.timeZone = timeZone;
     }
 
-    public char getDayLightSaving() {
+    public String getDayLightSaving() {
         return dayLightSaving;
     }
 
-    public void setDayLightSaving(char dayLightSaving) {
+    public void setDayLightSaving(String dayLightSaving) {
         this.dayLightSaving = dayLightSaving;
     }
 
