@@ -5,18 +5,28 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author Aaron Tsatsu Tamakloe
+ * The DataManipulation class represents the object that reads from files and stores the data in structures.
+ */
 public class DataManipulation {
-    //airportHolder holds the records in the Airport file as arrays
+    //airportHolder, routesHolder and airlinesHolder hold the records in the Airport, Airlines, and Routes file respectively
     private List<String[]> airportHolder = Airport.readAirportData();
     private List<String[]> routesHolder = Routes.readRoutesData();
     private List<String[]> airlinesHolder = Airlines.readAirlineData();
 
 
+    /**
+     * Constructor:
+     * builds the DataManipulation object
+     * @throws IOException
+     */
     public DataManipulation() throws IOException {}
 
-    public HashMap<int, Airport> loadAirportData(){
+    //read airport data into a hashmap with airportID as key and the airport object as value
+    public HashMap<Integer, Airport> loadAirportData(){
         //create hashmap to hold airport details as key-value pair
-        HashMap<int, Airport> airportKeyValHolder = new HashMap<int, Airport>();
+        HashMap<Integer, Airport> airportKeyValHolder = new HashMap<Integer, Airport>();
 
         for(String[] data:airportHolder)
         {
@@ -37,6 +47,10 @@ public class DataManipulation {
         return airportKeyValHolder;
     }
 
+    /**
+     * reads all the possible routes into a linked list
+     * @return List<Routes>
+     */
     public List<Routes> genRouteList(){
         List<Routes> routesList= new LinkedList<Routes>();
         for(String[] data:routesHolder)
@@ -55,9 +69,13 @@ public class DataManipulation {
         return routesList;
     }
 
-
-    public HashMap<int, Airlines> loadAirlinesData(){
-        HashMap<int, Airlines> airlinesKeyValue = new HashMap<int, Airlines>();
+    /**
+     * reads all the airlines data and stores it into a hashmap
+     * with the airlineID as key and the airlines object as values
+     * @return HashMap<Integer, Airlines>
+     */
+    public HashMap<Integer, Airlines> loadAirlinesData(){
+        HashMap<Integer, Airlines> airlinesKeyValue = new HashMap<Integer, Airlines>();
         for(String[] data: routesHolder)
         {
             try

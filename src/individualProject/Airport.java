@@ -4,8 +4,13 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
-
+/**
+ * @author Aaron Tsatsu Tamakloe
+ * The Airport class represents the features of an airport
+ */
 public class Airport {
+
+    //instance variables
     private int airportID;
     private String airportName;
     private String cityName;
@@ -21,6 +26,25 @@ public class Airport {
     private String type;
     private String dataSource;
 
+
+    /**
+     * Constructor:
+     * Building an airport object
+     * @param airportID
+     * @param airportName
+     * @param cityName
+     * @param countryName
+     * @param IATACode
+     * @param ICAOCode
+     * @param latitude
+     * @param longitude
+     * @param altitude
+     * @param timeZone
+     * @param dayLightSaving
+     * @param tzDBTimeZone
+     * @param type
+     * @param dataSource
+     */
     public Airport(int airportID, String airportName, String cityName, String countryName, String IATACode,
                    String ICAOCode, double latitude, double longitude, double altitude, double timeZone,
                    String dayLightSaving, String tzDBTimeZone, String type, String dataSource) {
@@ -40,6 +64,7 @@ public class Airport {
         this.dataSource = dataSource;
     }
 
+    //read data from the airport.csv file
     public static List<String[]> readAirportData() throws IOException {
         List<String[]> dataHolder = new LinkedList<String[]>();
         BufferedReader readAirportFile = null;
@@ -62,6 +87,7 @@ public class Airport {
         return dataHolder;
     }
 
+    //getters and setters
     public int getAirportID() {
         return airportID;
     }
@@ -174,6 +200,7 @@ public class Airport {
         this.dataSource = dataSource;
     }
 
+    //toString method to override how the airport object is returned
     @Override
     public String toString() {
         return ("Airport ID =" + airportID +

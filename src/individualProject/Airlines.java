@@ -7,7 +7,12 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author Aaron Tsatsu Tamakloe
+ * The Airlines class represents the features of an airline
+ */
 public class Airlines {
+    //instance variables
     private int airlineID;
     private String airlineName;
     private String airlineAlias;
@@ -17,6 +22,18 @@ public class Airlines {
     private String country;
     private String active;
 
+    /**
+     * Constructor:
+     * building the airlines object
+     * @param airlineID
+     * @param airlineName
+     * @param airlineAlias
+     * @param IATACode
+     * @param ICAOCode
+     * @param callSign
+     * @param country
+     * @param active
+     */
     public Airlines(int airlineID, String airlineName, String airlineAlias, String IATACode, String ICAOCode, String callSign, String country, String active) {
         this.airlineID = airlineID;
         this.airlineName = airlineName;
@@ -29,6 +46,7 @@ public class Airlines {
     }
 
 
+    //read data from the airlines.csv file and store it in a data structure
     public static List<String[]> readAirlineData() throws IOException {
         List<String[]> dataHolder = new LinkedList<String[]>();
         BufferedReader readAirlineFile = null;
@@ -51,6 +69,7 @@ public class Airlines {
         return dataHolder;
     }
 
+    //getters and setters
     public int getAirlineID() {
         return airlineID;
     }
@@ -115,6 +134,7 @@ public class Airlines {
         this.active = active;
     }
 
+    //toString method to override how the airlines object is returned
     @Override
     public String toString() {
         return ("Airline ID=" + airlineID +

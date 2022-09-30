@@ -7,7 +7,12 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author Aaron Tsatsu Tamakloe
+ * The Routes class represents the features of a route that an airline can take
+ */
 public class Routes {
+    //instance variables
     private String airlineCode;
     private int airlineID;
     private String SRCairportCode;
@@ -18,6 +23,19 @@ public class Routes {
     private int stops;
     private String equipment;
 
+    /**
+     * Constructor:
+     * building the routes object
+     * @param airlineCode
+     * @param airlineID
+     * @param SRCairportCode
+     * @param SRCairportID
+     * @param DESairportCode
+     * @param DESairportID
+     * @param codeShare
+     * @param stops
+     * @param equipment
+     */
     public Routes(String airlineCode, int airlineID, String SRCairportCode, int SRCairportID,
                   String DESairportCode, int DESairportID, String codeShare, int stops, String equipment) {
         this.airlineCode = airlineCode;
@@ -31,6 +49,7 @@ public class Routes {
         this.equipment = equipment;
     }
 
+    //read data from the routes.csv file and store it in linked list.
     public static List<String[]> readRoutesData() throws IOException {
         List<String[]> dataHolder = new LinkedList<String[]>();
         BufferedReader readRoutesFile = null;
@@ -53,6 +72,7 @@ public class Routes {
         return dataHolder;
     }
 
+    //getters and setters
     public String getAirlineCode() {
         return airlineCode;
     }
@@ -125,6 +145,7 @@ public class Routes {
         this.equipment = equipment;
     }
 
+    //toString method to override how the routes object is returned
     @Override
     public String toString() {
         return ("Airline Code='" + airlineCode + '\'' +
